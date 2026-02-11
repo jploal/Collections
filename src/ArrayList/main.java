@@ -16,6 +16,7 @@ public class main {
                 3 - Actualizar contacto
                 4 - Eliminar contacto
                 5 - Buscar contacto por nombre
+                NOTA: Esta lista de contactos es Case Sensitive
                 """);
     }
 
@@ -36,7 +37,7 @@ public class main {
         System.out.println("Introduce nombre de contacto existente");
         String existente = scanner.nextLine();
         if (telefono.queryContact(existente) == null) {
-            System.out.println("ArrayList.Contacto no encontrado");
+            System.out.println("Contacto no encontrado");
             return;
         }
         System.out.println("Introduce nombre de contacto nuevo");
@@ -51,7 +52,7 @@ public class main {
         System.out.println("Introduce nombre de contacto existente");
         String existente = scanner.nextLine();
         if (telefono.queryContact(existente) == null) {
-            System.out.println("ArrayList.Contacto no encontrado");
+            System.out.println("Contacto no encontrado");
             return;
         }
         telefono.removeContact(telefono.queryContact(existente));
@@ -65,13 +66,18 @@ public class main {
         if (contacto != null) {
             System.out.println("Nombre: " + contacto.getName() + ", Teléfono: " + contacto.getPhoneNumber());
         } else {
-            System.out.println("ArrayList.Contacto no encontrado.");
+            System.out.println("Contacto no encontrado.");
         }
     }
 
 
     public static void main(String[] args) {
-
+        Contacto Oscar=new Contacto("Oscar","111111111");
+        telefono.addNewContact(Oscar);
+        Contacto Daniela=new Contacto("Daniela","222222222");
+        telefono.addNewContact(Daniela);
+        Contacto MiguelA= new Contacto("MiguelA","333333333");
+        telefono.addNewContact(MiguelA);
         boolean salir = false;
         int eleccion;
 

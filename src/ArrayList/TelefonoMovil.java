@@ -15,12 +15,11 @@ public class TelefonoMovil {
 
     public boolean addNewContact(Contacto contacto) {
         if (findContact(contacto.getName()) >= 0) {
-            return false;
-        }
-        if (findContact(contacto.getPhoneNumber()) >= 0) {
+            System.out.println("Contacto ya existe");
             return false;
         }
         myContacts.add(contacto);
+        System.out.println("Contacto registrado");
         return true;
     }
 
@@ -28,17 +27,17 @@ public class TelefonoMovil {
         int oldIndex = findContact(antiguo.getName());
 
         if (oldIndex < 0) {
+            System.out.println("Contacto antiguo no existe");
             return false;
         }
 
         if (findContact(nuevo.getName()) >= 0 &&
                 !antiguo.getName().equals(nuevo.getName())) {
-            return false;
-        }
-        if (findContact(nuevo.getPhoneNumber()) >= 0) {
+            System.out.println("Contacto nuevo ya existe");
             return false;
         }
         myContacts.set(oldIndex, nuevo);
+        System.out.println("Contacto actualizado");
         return true;
     }
 
@@ -46,10 +45,12 @@ public class TelefonoMovil {
         int index = findContact(contacto.getName());
 
         if (index < 0) {
+            System.out.println("Contacto no existe");
             return false;
         }
 
         myContacts.remove(index);
+        System.out.println("Contacto eliminado");
         return true;
     }
 
