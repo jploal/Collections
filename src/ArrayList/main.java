@@ -1,5 +1,6 @@
 package ArrayList;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class main {
@@ -85,6 +86,7 @@ public class main {
         while (!salir) {
             menu();
             System.out.println("Elige una opción:");
+            try{
             eleccion = scanner.nextInt();
             scanner.nextLine();
 
@@ -103,6 +105,10 @@ public class main {
                 case 3 -> actualizarContacto();
                 case 4 -> eliminarContacto();
                 case 5 -> buscarContacto();
+            }
+        }catch(InputMismatchException e){
+                System.out.println("Introduce los números que haya en el menú");
+                scanner.nextLine();
             }
         }
     }
