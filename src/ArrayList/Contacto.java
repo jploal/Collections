@@ -1,8 +1,17 @@
 package ArrayList;
 
 public class Contacto {
-private String name;
-private String phoneNumber;
+    private String name;
+    private String phoneNumber;
+
+    Contacto(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public static Contacto createContact(String name, String phoneNumber) {
+        return new Contacto(name, phoneNumber);
+    }
 
     public String getName() {
         return name;
@@ -10,12 +19,5 @@ private String phoneNumber;
 
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-    Contacto(String name, String phoneNumber) {
-        this.name = name;
-        this.phoneNumber = phoneNumber;
-    }
-    public static Contacto createContact(String name, String phoneNumber) {
-        return new Contacto(name, phoneNumber);
     }
 }

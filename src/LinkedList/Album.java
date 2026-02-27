@@ -13,23 +13,26 @@ public class Album {
         this.artista = artista;
         this.canciones = new ArrayList<>();
     }
+
     public Cancion findSong(String nombre) {
         for (Cancion cancion : canciones) {
-            if (cancion.getTitulo().equals(nombre)){
+            if (cancion.getTitulo().equals(nombre)) {
                 return cancion;
             }
         }
         return null;
     }
+
     public boolean addSong(String titulo, Double duracion) {
-        if (findSong(titulo)==null){
-            canciones.add(new Cancion(titulo,duracion));
+        if (findSong(titulo) == null) {
+            canciones.add(new Cancion(titulo, duracion));
             System.out.println("La canción se agrego con éxito");
             return true;
         }
         System.out.println("La canción ya existe en el sistema");
         return false;
     }
+
     public boolean addToPlayList(int numero, LinkedList<Cancion> playList) {
         int index = numero - 1;
 

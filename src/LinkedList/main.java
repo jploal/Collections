@@ -41,83 +41,83 @@ public class main {
         }
 
 
-
         while (!salir) {
             Menu();
-            try{
-            System.out.println("Elige una opción:");
-            int action = scanner.nextInt();
+            try {
+                System.out.println("Elige una opción:");
+                int action = scanner.nextInt();
 
-            switch (action) {
+                switch (action) {
 
-                case 0 -> {
-                    System.out.println("Saliendo de la playlist...");
-                    salir = true;
-                }
-
-                case 1 -> {
-                    if (!siguiente) {
-                        if (iterator.hasNext()) iterator.next();
-                        siguiente = true;
+                    case 0 -> {
+                        System.out.println("Saliendo de la playlist...");
+                        salir = true;
                     }
-                    if (iterator.hasNext()) {
-                        System.out.println("Reproduciendo: " + iterator.next());
-                    } else {
-                        System.out.println("Final de la playlist");
-                        siguiente = false;
-                    }
-                }
 
-                case 2 -> {
-                    if (siguiente) {
-                        if (iterator.hasPrevious()) iterator.previous();
-                        siguiente = false;
-                    }
-                    if (iterator.hasPrevious()) {
-                        System.out.println("Reproduciendo: " + iterator.previous());
-                    } else {
-                        System.out.println("Inicio de la playlist");
-                        siguiente = true;
-                    }
-                }
-
-                case 3 -> {
-                    if (siguiente) {
-                        if (iterator.hasPrevious()) {
-                            System.out.println("Repitiendo: " + iterator.previous());
+                    case 1 -> {
+                        if (!siguiente) {
+                            if (iterator.hasNext()) iterator.next();
+                            siguiente = true;
+                        }
+                        if (iterator.hasNext()) {
+                            System.out.println("Reproduciendo: " + iterator.next());
+                        } else {
+                            System.out.println("Final de la playlist");
                             siguiente = false;
                         }
-                    } else {
-                        if (iterator.hasNext()) {
-                            System.out.println("Repitiendo: " + iterator.next());
+                    }
+
+                    case 2 -> {
+                        if (siguiente) {
+                            if (iterator.hasPrevious()) iterator.previous();
+                            siguiente = false;
+                        }
+                        if (iterator.hasPrevious()) {
+                            System.out.println("Reproduciendo: " + iterator.previous());
+                        } else {
+                            System.out.println("Inicio de la playlist");
                             siguiente = true;
                         }
                     }
-                }
 
-                case 4 -> printList(playlist);
-
-                case 5 -> Menu();
-
-                case 6 -> {
-                    if (playlist.size() > 0) {
-                        iterator.remove();
-                        if (iterator.hasNext()) {
-                            System.out.println("Reproduciendo: " + iterator.next());
-                        } else if (iterator.hasPrevious()) {
-                            System.out.println("Reproduciendo: " + iterator.previous());
+                    case 3 -> {
+                        if (siguiente) {
+                            if (iterator.hasPrevious()) {
+                                System.out.println("Repitiendo: " + iterator.previous());
+                                siguiente = false;
+                            }
+                        } else {
+                            if (iterator.hasNext()) {
+                                System.out.println("Repitiendo: " + iterator.next());
+                                siguiente = true;
+                            }
                         }
                     }
-                }
 
-                default -> System.out.println("Opción no válida");
-            }
-        }catch(InputMismatchException e){
+                    case 4 -> printList(playlist);
+
+                    case 5 -> Menu();
+
+                    case 6 -> {
+                        if (playlist.size() > 0) {
+                            iterator.remove();
+                            if (iterator.hasNext()) {
+                                System.out.println("Reproduciendo: " + iterator.next());
+                            } else if (iterator.hasPrevious()) {
+                                System.out.println("Reproduciendo: " + iterator.previous());
+                            }
+                        }
+                    }
+
+                    default -> System.out.println("Opción no válida");
+                }
+            } catch (InputMismatchException e) {
                 System.out.println("Introduce valores de la lista, solo numericos.");
                 scanner.nextLine();
             }
         }
-        }
+    }
+
     public static void main(String[] args) {
 
         ArrayList<Album> albums = new ArrayList<>();
@@ -126,7 +126,7 @@ public class main {
         album1.addSong("Shape of You", 4.24);
         album1.addSong("Perfect", 4.40);
         album1.addSong("Galway Girl", 2.50);
-        album1.addSong("Photograph",4.17);
+        album1.addSong("Photograph", 4.17);
 
         Album album2 = new Album("Thriller", "Michael Jackson");
         album2.addSong("Thriller", 5.57);

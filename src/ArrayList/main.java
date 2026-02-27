@@ -73,11 +73,11 @@ public class main {
 
 
     public static void main(String[] args) {
-        Contacto Oscar=new Contacto("Oscar","111111111");
+        Contacto Oscar = new Contacto("Oscar", "111111111");
         telefono.addNewContact(Oscar);
-        Contacto Daniela=new Contacto("Daniela","222222222");
+        Contacto Daniela = new Contacto("Daniela", "222222222");
         telefono.addNewContact(Daniela);
-        Contacto MiguelA= new Contacto("MiguelA","333333333");
+        Contacto MiguelA = new Contacto("MiguelA", "333333333");
         telefono.addNewContact(MiguelA);
         boolean salir = false;
         int eleccion;
@@ -86,27 +86,27 @@ public class main {
         while (!salir) {
             menu();
             System.out.println("Elige una opción:");
-            try{
-            eleccion = scanner.nextInt();
-            scanner.nextLine();
+            try {
+                eleccion = scanner.nextInt();
+                scanner.nextLine();
 
-            if (eleccion < 0 || eleccion > 6) {
-                System.out.println("Opción no válida");
-                continue;
-            }
-
-            switch (eleccion) {
-                case 0 -> {
-                    System.out.println("Saliendo...");
-                    salir = true;
+                if (eleccion < 0 || eleccion > 6) {
+                    System.out.println("Opción no válida");
+                    continue;
                 }
-                case 1 -> imprimirContacto();
-                case 2 -> agregarContacto();
-                case 3 -> actualizarContacto();
-                case 4 -> eliminarContacto();
-                case 5 -> buscarContacto();
-            }
-        }catch(InputMismatchException e){
+
+                switch (eleccion) {
+                    case 0 -> {
+                        System.out.println("Saliendo...");
+                        salir = true;
+                    }
+                    case 1 -> imprimirContacto();
+                    case 2 -> agregarContacto();
+                    case 3 -> actualizarContacto();
+                    case 4 -> eliminarContacto();
+                    case 5 -> buscarContacto();
+                }
+            } catch (InputMismatchException e) {
                 System.out.println("Introduce los números que haya en el menú");
                 scanner.nextLine();
             }

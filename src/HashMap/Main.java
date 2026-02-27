@@ -61,7 +61,7 @@ public class Main {
 
             if (respuesta.equals("Q")) {
                 System.out.println("Saliendo del juego...");
-                salir=true;
+                salir = true;
             }
 
             if (juego.ubicaciones.get(actual).getExits().containsKey(respuesta)) {
