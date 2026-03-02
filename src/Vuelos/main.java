@@ -20,7 +20,6 @@ public class main {
                 5 - Borrar vuelo por numero
                 6 - Salir
                 ---------------------------------
-                Dame la opción 0
                 """);
     }
 
@@ -166,7 +165,7 @@ public class main {
                 eleccion = sc.nextInt();
                 sc.nextLine();
 
-                if (eleccion < 0 || eleccion > 6) {
+                if (eleccion <= 0 || eleccion > 6) {
                     System.out.println("Opción no válida");
                     continue;
                 }
