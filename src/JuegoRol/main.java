@@ -98,11 +98,11 @@ public class main {
                     case 3 -> Jugar.jugar(sc, lista, jugadorActual);
                     case 4 ->salir = true;
                 }
-                System.out.println("Saliendo...");
             } catch (InputMismatchException e) {
                 System.out.println("Introduce los números que haya en el menú");
                 sc.nextLine();
             }
         }
+        System.out.println("Saliendo...");
     }
     }

@@ -96,11 +96,19 @@ public class main {
     public static void añadirVuelo() {
         System.out.println("Introduce Vuelo a añadir:(numero,origen,destino,dia y clase");
         String numero, origen, destino, dia, clase;
-
+        boolean vueloExiste;
         do {
+            vueloExiste = false;
             System.out.print("Número(YYYY-XX): ");
             numero = sc.nextLine();
-        } while (!numero.matches("\\d{4}-\\d{2}"));
+            for (Vuelos vuelo : vuelos) {
+                if (numero.equals(vuelo.getNumero())) {
+                    System.out.println("Numero de vuelo ya existente");
+                    vueloExiste = true;
+                }
+            }
+        } while (!numero.matches("\\d{4}-\\d{2}") || vueloExiste);
+
 
         System.out.print("Origen: ");
         origen = sc.nextLine();
